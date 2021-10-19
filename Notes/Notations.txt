@@ -13,3 +13,4 @@ Primeiros passos quando criar uma api em node.js
 11 - criar arquivo .lintstagedrc.json
 12 - adicionar jest no projeto - npm i -D jest @types/jest ts-jest
 12 - rodar npx jest --init
+13 - criar um arquivo teste e rodar npm test
