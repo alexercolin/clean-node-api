@@ -12,4 +12,4 @@ Primeiros passos quando criar uma api em node.js
 10 - adicionar lint-staged - npm i -D lint-staged
 11 - criar arquivo .lintstagedrc.json
 12 - adicionar jest no projeto - npm i -D jest @types/jest ts-jest
-12 - rodar jest --init
+12 - rodar npx jest --init
