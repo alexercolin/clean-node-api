@@ -7,8 +7,8 @@ Primeiros passos quando criar uma api em node.js
 5 - instalar eslint-config-standard-with-typescript (Pegar npm instal no repositório do github)
 6 - criar o arquivo .eslintrc.json
 7 - criar arquivo .eslintignore
-8 -
-9 -
-10 -
+8 - adicionar husky no projeto - npm i -D husky
+9 - criar arquivo .huskyrc.json
+10 - adicionar lint-staged - npm i -D lint-staged
 11 -
 12 -  
