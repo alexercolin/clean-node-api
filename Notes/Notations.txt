@@ -20,3 +20,5 @@ Sempre criar erros personalizados, extendendo a classe Error do JavaScript
 1 - Basta criar uma pasta errors
 2 - Criar o arquivo .ts
 3 - Criar a função, extender de Error e usar super() e this
+4 - Criar tambem uma pasta helper e um file ts, que retornar o erro como objeto, com o nome do erro
+Ex-> 400 é um badRequest
