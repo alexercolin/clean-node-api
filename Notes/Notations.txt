@@ -24,7 +24,7 @@ Sempre criar erros personalizados, extendendo a classe Error do JavaScript
 Ex-> 400 é um badRequest
 
 Sintax sugar
-O monstro manguinho transformo isso:
+O monstro manguinho transformou isso:
     if (!httpRequest.body.name) {
       return badRequest(new MissingParamError('name'))
     }
