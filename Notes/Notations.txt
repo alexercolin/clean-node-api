@@ -22,3 +22,22 @@ Sempre criar erros personalizados, extendendo a classe Error do JavaScript
 3 - Criar a função, extender de Error e usar super() e this
 4 - Criar tambem uma pasta helper e um file ts, que retornar o erro como objeto, com o nome do erro
 Ex-> 400 é um badRequest
+
+Sintax sugar
+O monstro manguinho transformo isso:
+    if (!httpRequest.body.name) {
+      return badRequest(new MissingParamError('name'))
+    }
+
+    if (!httpRequest.body.email) {
+      return badRequest(new MissingParamError('email'))
+    }
+
+em isso:
+    const requiredField = ['name', 'email']
+    for (const field of requiredField) {
+      if (!httpRequest.body[field]) {
+        return badRequest(new MissingParamError(field))
+      }
+    }
+  }
