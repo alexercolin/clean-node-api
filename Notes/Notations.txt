@@ -46,4 +46,13 @@ em isso:
   S -Single responsability principle - Isolar cada classe e função e cada um vai fazer uma coisa.
   I - Interface segregation principle - Criamos interfaces que fazem apenas uma coisa, assim uma classe pode utilizar várias interfaces,
   e cada interface faz uma coisa diferente
+
+  Teste unitário - JEST
+  Utiliza com a extensão .spec Exemplo --> signup.spec.ts
+
+
+  Teste de integração - JEST
+  Utiliza com a extensão .test Exemplo --> signup.test.ts
+
+  O JEST entende sozinho essa nomenclatura acima, ele já sabe que é o teste.
   
