@@ -1,4 +1,4 @@
-import { ServerError } from '../errors/server-error'
+import { ServerError } from '../errors'
 import { HttpResponse } from '../protocols/http'
 
 // usei o parenteses sem o return na resposta da arrow function, é um sintax sugar
