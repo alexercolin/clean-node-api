@@ -55,4 +55,10 @@ em isso:
   Utiliza com a extensão .test Exemplo --> signup.test.ts
 
   O JEST entende sozinho essa nomenclatura acima, ele já sabe que é o teste.
+
+  Quando for instalar uma dependência
+  Exemplo -> npm i validator
+  Após o download,
+  rodar o npm -i @types/validator -D (Tem que colocar o -D, para ser apenas no ambiente de desenvolvimento)
+  O @types é do typescript, para neste caso, reconhecer os tipos do validator.
   
