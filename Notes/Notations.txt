@@ -62,3 +62,6 @@ em isso:
   rodar o npm -i @types/validator -D (Tem que colocar o -D, para ser apenas no ambiente de desenvolvimento)
   O @types é do typescript, para neste caso, reconhecer os tipos do validator.
   
+  Nos testes do JEST em caso de sucesso, você não mocka com stub, spyOn, etc..
+  O default do mock ja é o caso de sucesso.
+  Só mockamos quando quisermos retornar erro
