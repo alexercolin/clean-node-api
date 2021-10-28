@@ -1,4 +1,5 @@
 Primeiros passos quando criar uma api em node.js
+Até o passso 13, foi tudo feito antes de iniciar o projeto, o resto, foi durante.
 
 1 - git init
 2 - npm init -y ( Com o -y ele já cria o package.json com conifgurações padrão)
@@ -16,6 +17,9 @@ Primeiros passos quando criar uma api em node.js
 13 - criar um arquivo teste e rodar npm test
 14 - Depois de um tempo, foi instalado o bcrypt, com npm i bcrypt (É uma dependência de produção)
 15 - Depois npm i @types/bcrypt -D, esse sim como desenvolvimento, apenas para suporte ao typescript
+16 - Foi instalado o shelf, que faz testes de integração com o mongodb - npm i -D @shelf/jest-mongodb
+17 - E também foi instalado o mongodb npm i mongodb (DEPENDÊNCIA DE PRODUÇÃO) e dps o @types/mongodb como DEPENDÊNCIA DE DESENVOLVIMENTO
+
 
 Sempre criar erros personalizados, extendendo a classe Error do JavaScript
 1 - Basta criar uma pasta errors
@@ -98,3 +102,13 @@ Mas isso não é legal, por que a minha interface é genérica para criptografia
 estarei fazendo o meu código depender da do bcrypt, que é uma dependência externa.
 Então, ao invés disso, eu passo no construtor da classe o salt como se fosse uma
 dependência da classe e utilizo nos métodos dessa classe. Isso é uma dependency injection
+
+PONTO DE ATENÇÃO - BANCO DE DADOS
+Tanto no trabalho, quanto em projetos pessoais. Atenção a versão do banco de dados 
+que você está utilizando em desenvolvimento x produção, elas tem que ser iguais,
+e quem define a versão? O SERVIDOR ! Se o servidor só aceitar por exemplo,
+a versão do mongodb 4.0.2, tanto a sua versão de desenvolvimento, quanto de produção,
+devem estar na mesma versão. Se por acaso você estiver usando em desenvolvimento a versão 
+4.0.3, pode ser que recursos dessa versão que você esteja utilizando na sua query, não funcione
+em produção, por que esses recursos são somente na versão atual.
+
