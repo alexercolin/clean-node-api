@@ -112,3 +112,8 @@ devem estar na mesma versão. Se por acaso você estiver usando em desenvolvimen
 4.0.3, pode ser que recursos dessa versão que você esteja utilizando na sua query, não funcione
 em produção, por que esses recursos são somente na versão atual.
 
+GIT 
+Comando legal -> git stash /caminho/do/arquivo, você coloca o arquivo que você quiser em uma especie de esconderijo 
+ai o git não enxerga ele, e depois para tirar, só dar um git stash pop
+Se quiser verificar quais arquivos estão em stash -> git stash list
+
