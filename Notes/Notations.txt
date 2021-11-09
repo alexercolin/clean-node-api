@@ -117,3 +117,9 @@ Comando legal -> git stash /caminho/do/arquivo, você coloca o arquivo que você
 ai o git não enxerga ele, e depois para tirar, só dar um git stash pop
 Se quiser verificar quais arquivos estão em stash -> git stash list
 
+ADAPTER
+Adapter é responsável por pegar uma interface de um tipo e converter para outro tipo.
+Exemplo da vida real: Um adaptador de tomada na TV
+Exemplo no código: o método handle do controlar SignUp, espera receber um http request enquanto a rota
+do express espera uma requisição do tipo Req, Res, então para preservarmos o principio Single principle
+
