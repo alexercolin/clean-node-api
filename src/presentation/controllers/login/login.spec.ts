@@ -14,7 +14,6 @@ const makeEmailValidator = (): EmailValidator => {
 
 const makeFakeRequest = (): HttpRequest => ({
   body: {
-    name: 'any_name',
     email: 'any_email@mail.com',
     password: 'any_password'
   }
@@ -60,12 +59,7 @@ describe('Login Controller', () => {
     test('Should call EmailValidator with correct email', async () => {
       const { sut, emailValidatorStub } = makeSut()
       const isValidSpy = jest.spyOn(emailValidatorStub, 'isValid').mockReturnValueOnce(false)
-      const httpRequest = {
-        body: {
-          email: 'any_email@mail.com',
-          password: 'any_password'
-        }
-      }
+      const httpRequest = await sut.handle(makeFakeRequest())
       await sut.handle(httpRequest)
       expect(isValidSpy).toHaveBeenCalledWith('any_email@mail.com')
     })
