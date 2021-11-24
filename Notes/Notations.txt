@@ -123,3 +123,6 @@ Exemplo da vida real: Um adaptador de tomada na TV
 Exemplo no código: o método handle do controlar SignUp, espera receber um http request enquanto a rota
 do express espera uma requisição do tipo Req, Res, então para preservarmos o principio Single principle
 
+Lembre-se do principio do open-closed - aberto para extensão e fechado para alteração.
+Então o código deve ser feito para aceitar novas features, mas não alterar as já existentes. O mesmo vale para os testes.
+
