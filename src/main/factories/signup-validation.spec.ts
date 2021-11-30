@@ -24,7 +24,7 @@ describe('', () => {
       validations.push(new RequiredFieldValidation(field))
     }
     validations.push(new CompareFieldsValidation('password', 'passwordConfirmation'))
-    validations.push(new EmailValidation('emai', makeEmailValidator()))
+    validations.push(new EmailValidation('email', makeEmailValidator()))
     expect(ValidationComposite).toHaveBeenCalledWith(
       validations
     )
