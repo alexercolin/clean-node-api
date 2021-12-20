@@ -126,3 +126,25 @@ do express espera uma requisição do tipo Req, Res, então para preservarmos o 
 Lembre-se do principio do open-closed - aberto para extensão e fechado para alteração.
 Então o código deve ser feito para aceitar novas features, mas não alterar as já existentes. O mesmo vale para os testes.
 
+SEGURANÇA
+Criptografia x Encode
+Criptografia é utilizado para seguranca. Ex: Hash em senha.
+Encode não é utilizado para seguranca, e sim transporte de dados. Ex: Chamar uma rota, encode da url antes de enviar, pq nem sempre a url entende
+todos os caracteres. E dps vc faz uma decode, nao tem chave, nada..
+
+Criptografia
+Existem dois tipos de criptografia
+1- Hash -> Irreversível e determinístico, ou seja, depois que uma senha é hasheada, vc nunca mais consegue voltar ela a uma string normal.
+E determinístico, é q se vc fiz o hash de uma senha 123, vc sempre obterá o mesmo valor.
+Ex de hash: sha1, sha256, md5
+2- Encrypt ->É reversível, se voce possuir a chave secreta, poderá voltar a senha ao normal.
+Essa é a principal diferença, hash não utiliza chave secreta e encrypt, utiliza.
+
+A lib que estamos usando, o Bcrpt, utiliza mais uma camada de segurança, o kdf (Key derivation function)
+Que é o salt, que no nosso caso, vale 12 ( número mais comum em seguro).
+Basicamente, ele cria uma string aleatória de 12 caracteres e da um append no final da senha que vai ser 
+registrada no banco.
+O bcrypt remove o salt na hora de fazer a comparacao, mas só ele sabe fazer isso.
+Assim, o hash se torna não determinístico.
+Mas qual é o tradeoff? Ele deixa lento a geração de hash.(Mais de 1 segundo).
+
