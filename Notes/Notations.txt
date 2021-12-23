@@ -147,3 +147,11 @@ registrada no banco.
 O bcrypt remove o salt na hora de fazer a comparacao, mas só ele sabe fazer isso.
 Assim, o hash se torna não determinístico.
 Mas qual é o tradeoff? Ele deixa lento a geração de hash.(Mais de 1 segundo).
+
+Pastas do projeto - As camadas
+Domain - Onde ficam os casos de uso e as entidades.
+Data - Implementação dos casos de uso. Onde ficam as regras de negócio.
+Infra - Implementações que usam libs de terceiros
+Presentation - Onde preparamos os dados que serão "apresentados" pela view (no caso da API, a view é apenas um JSON ou XML)
+Validation - Onde fazemos validações
+Main - Onde fazemos a composição das classes
