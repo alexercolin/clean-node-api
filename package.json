@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "sucrase-node src/main/server.ts",
+    "start": "node dist/main/server.js",
+    "build": "rimraf dist && tsc",
+    "dev": "sucrase-node src/main/server.ts",
     "test": "jest --silent --noStackTrace --runInBand",
     "test:full": "jest --runInBand",
     "test:unit": "npm test -- --watch -c jest-unit-config.js",
@@ -35,6 +37,7 @@
     "jest": "^27.3.1",
     "jest-cli": "^27.3.1",
     "lint-staged": "^11.2.3",
+    "rimraf": "^3.0.2",
     "sucrase": "^3.20.3",
     "supertest": "^6.1.6",
     "ts-jest": "^27.0.7",
@@ -44,7 +47,6 @@
   "dependencies": {
     "bcrypt": "^5.0.1",
     "express": "^4.17.1",
-    "fast-glob": "^3.2.7",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.1.3",
     "validator": "^13.6.0"
