@@ -166,3 +166,17 @@ RUN npm install --only=prod -> Roda o npm install instalando apenas as dependên
 COPY ./dist ./dist -> Copia a pasta dist para a pasta dist do meu docker
 EXPOSE 5000 -> Expoem a porta que voce quer rodar o projeto(pode ser qualquer uma)
 CMD npm start -> da o start no node dentro do container( Por isso vc baixa as libs do docker no site dockerhub)
+
+Comandos
+sudo docker images
+sudo docker ps
+sudo docker ps -a
+sudo docker container prune -> Exclui todos os containers da máquina (Otimo para liberar espaco no pc kkkk)
+sudo docker image prune -> Exclui todos os containers da máquina (Otimo para liberar espaco no pc kkkk)
+Para rodar o script que foi criado(Cirar o build)
+docker build -t clean-node-api .
+Se voce quiser verificar se foi tudo foi criado certinho, vc entra dentro do docker e checa se as pastas estao la e se tudo foi copiado corretamente.
+sudo docker run -it clean-node-api sh
+e roda um "ls" depois
+Para rodar o projeto
+sudo docker run -p 5000:5000 clean-node api -> Aqui vc ta falando que vc quer q rode na porta 5000 da sua maquina com a porta 5000 do container do docker
