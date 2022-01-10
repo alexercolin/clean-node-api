@@ -155,3 +155,14 @@ Infra - Implementações que usam libs de terceiros
 Presentation - Onde preparamos os dados que serão "apresentados" pela view (no caso da API, a view é apenas um JSON ou XML)
 Validation - Onde fazemos validações
 Main - Onde fazemos a composição das classes
+
+
+DOCKER
+FROM node:17 -> Especificando qual é a versão do node
+WORKDIR /usr/src/clean-node-api -> Onde eu quero salvar na minha máquina
+COPY ./package.json . -> Copia o packge.json do projeto( Como rodei o terminal dentro do projeto, eu só preciso colocar "." no final,
+Se estivesse em outra pasta, teria que passar o caminho)
+RUN npm install --only=prod -> Roda o npm install instalando apenas as dependências de producao
+COPY ./dist ./dist -> Copia a pasta dist para a pasta dist do meu docker
+EXPOSE 5000 -> Expoem a porta que voce quer rodar o projeto(pode ser qualquer uma)
+CMD npm start -> da o start no node dentro do container( Por isso vc baixa as libs do docker no site dockerhub)
