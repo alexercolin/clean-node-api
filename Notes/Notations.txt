@@ -181,3 +181,10 @@ e roda um "ls" depois
 Para rodar o projeto
 sudo docker run -p 5000:5000 clean-node api -> Aqui vc ta falando que vc quer q rode na porta 5000 da sua maquina com a porta 5000 do container do docker
 subir npm run up
+
+LAYERS
+
+- O Presentation só conhece do Domain;
+- O Domain não conhece de ninguém;
+- A Infra só conhece o Data
+- O Data só conhece o Domain
