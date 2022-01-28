@@ -188,3 +188,7 @@ LAYERS
 - O Domain não conhece de ninguém;
 - A Infra só conhece o Data
 - O Data só conhece o Domain
+
+OBS
+O retorno 204 ẽ um sucesso que você não retorna nada para quem fez o request
+O 200 você já precisa retornar algo
