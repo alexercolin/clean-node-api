@@ -21,6 +21,3 @@ export class AddSurveyController implements Controller {
     }
   }
 }
-
-// ensure AddSurveyController returns a badRequest error if validation fails
-// ensure AddSurveyController calls AddSurveyUseCase with correct values
