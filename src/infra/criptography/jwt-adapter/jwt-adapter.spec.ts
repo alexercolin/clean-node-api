@@ -46,4 +46,19 @@ describe('verify()', () => {
     await sut.decrypt('any_token')
     expect(verifySpy).toHaveBeenCalledWith('any_token', 'secret')
   })
+
+  test('Should return a value on verify success', async () => {
+    const sut = makeSut()
+    const value = await sut.decrypt('any_token')
+    expect(value).toBe('any_value')
+  })
+
+  test('Should throws if verify throws', async () => {
+    const sut = makeSut()
+    jest.spyOn(jwt, 'verify').mockImplementationOnce(() => {
+      throw new Error()
+    })
+    const promise = sut.decrypt('any_value')
+    await expect(promise).rejects.toThrow()
+  })
 })
