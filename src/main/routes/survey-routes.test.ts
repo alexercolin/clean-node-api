@@ -18,6 +18,7 @@ describe('Survey Routes', () => {
     surveyCollection = await MongoHelper.getCollection('surveys')
     await surveyCollection.deleteMany({})
   })
+
   describe('POST/surveys', () => {
     test('Should return 403 on add a survey without access token', async () => {
       await request(app)
