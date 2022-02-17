@@ -10,6 +10,7 @@
     "up": "npm run build && sudo docker-compose up",
     "stop": "sudo docker-compose down",
     "test": "jest --silent --noStackTrace --runInBand",
+    "test:find": "jest --detectOpenHandles",
     "test:full": "jest --runInBand",
     "test:unit": "npm test -- --watch -c jest-unit-config.js",
     "test:integration": "npm test -- --watch -c jest-integration-config.js",
