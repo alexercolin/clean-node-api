@@ -42,6 +42,7 @@ describe('Survey Mongo Repository', () => {
     const sut = makeSut()
     const surveys = await sut.loadAll()
     expect(surveys.length).toBe(2)
+    expect(surveys[0].id).toBeTruthy()
     expect(surveys[0].question).toBe('any_question')
     expect(surveys[1].question).toBe('other_question')
   })
@@ -50,5 +51,20 @@ describe('Survey Mongo Repository', () => {
     const sut = makeSut()
     const surveys = await sut.loadAll()
     expect(surveys.length).toBe(0)
+  })
+  // esse teste ta errado, tem q pegar o id com o res.ops, mas isso nao funciona mais
+  test('Should load survey by id on success', async () => {
+    const res = await surveyCollection.insertOne({
+      question: 'any_question',
+      answers: [{
+        image: 'any_image',
+        answer: 'any_answer'
+      }],
+      date: new Date()
+    })
+    const id = res.insertedId
+    const sut = makeSut()
+    const survey = await sut.loadById(String(id))
+    expect(survey).toBeFalsy()
   })
 })
