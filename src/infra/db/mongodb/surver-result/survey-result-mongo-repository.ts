@@ -17,7 +17,8 @@ export class SurveyResultMongoRepository implements SaveSurveyResultRepository {
     }, {
       upsert: true
     })
+
     // ta errado aqui
-    return MongoHelper.map(res)
+    return (await res).value && MongoHelper.map(res)
   }
 }
