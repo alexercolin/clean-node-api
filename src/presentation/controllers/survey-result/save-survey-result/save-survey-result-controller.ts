@@ -18,13 +18,6 @@ export class SaveSurveyResultController implements Controller {
 
       const survey = await this.loadSurveyById.loadById(surveyId)
 
-      const surveyResult = await this.saveSurveyResult.save({
-        accountId,
-        surveyId,
-        answer,
-        date: new Date()
-      })
-
       if (survey) {
         const answers = surveyId.answers.map(a => a.answer)
         if (!answers.includes(answer)) {
@@ -33,6 +26,13 @@ export class SaveSurveyResultController implements Controller {
       } else {
         return forbidden(new InvalidParamError('surveyId'))
       }
+
+      const surveyResult = await this.saveSurveyResult.save({
+        accountId,
+        surveyId,
+        answer,
+        date: new Date()
+      })
       return ok(surveyResult)
     } catch (error) {
       return serverError(error)
