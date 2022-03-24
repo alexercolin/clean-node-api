@@ -192,3 +192,12 @@ LAYERS
 OBS
 O retorno 204 ẽ um sucesso que você não retorna nada para quem fez o request
 O 200 você já precisa retornar algo
+
+Para expandir uma funcionalidade do express, exemplo, adicionar um novo parametro do Request,
+é s[o criar um arquivo, ex: custom-modules.d.ts, declarar o modulo(Request) e setar o novo campo customizado
+
+declare module Express {
+  interface Request {
+    accountId?: 'string'
+  }
+}
