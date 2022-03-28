@@ -3,6 +3,7 @@ import { AddAccountParams, AddAccount, AccountModel, Validation, Authentication,
 import { MissingParamError, ServerError, EmailInUseError } from '../../errors'
 import { HttpRequest } from '../../protocols'
 import { ok, serverError, badRequest, forbidden } from '../../helpers/http/http-helper'
+import { makeFakeAccount } from '@/domain/test'
 
 const makeAddAccount = (): AddAccount => {
   class AddAccountStub implements AddAccount {
@@ -30,13 +31,6 @@ const makeValidation = (): Validation => {
   }
   return new ValidationStub()
 }
-
-const makeFakeAccount = (): AccountModel => ({
-  id: 'valid_id',
-  name: 'valid_name',
-  email: 'valid_email@mail.com',
-  password: 'valid_password'
-})
 
 const makeFakeRequest = (): HttpRequest => ({
   body: {
