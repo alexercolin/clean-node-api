@@ -1,5 +1,6 @@
 import { AccountModel, AddAccountParams, Hasher, AddAccountRepository, LoadAccountByEmailRespository } from './db-add-account-protocols'
 import { DbAddAccount } from './db-add-account'
+import { makeFakeAccount, makeFakeAccountData } from '@/domain/test'
 
 const makeHasher = (): Hasher => {
   class HasherStub implements Hasher {
@@ -27,19 +28,6 @@ const makeAddAccountRepository = (): AddAccountRepository => {
   }
   return new AddAccountRepositoryStub()
 }
-
-const makeFakeAccount = (): AccountModel => ({
-  id: 'valid_id',
-  name: 'valid_name',
-  email: 'valid_email@email.com',
-  password: 'hashed_password'
-})
-
-const makeFakeAccountData = (): AddAccountParams => ({
-  name: 'valid_name',
-  email: 'valid_email@email.com',
-  password: 'valid_password'
-})
 
 type SutTypes = {
   sut: DbAddAccount
