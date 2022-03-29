@@ -8,6 +8,7 @@ import { SurveyResultModel } from '@/domain/models/survey-result'
 import { forbidden, serverError } from '@/presentation/helpers/http/http-helper'
 import { InvalidParamError } from '@/presentation/errors'
 import { throwError } from '@/domain/test'
+import { makeFakeSurvey } from '@/domain/test/mock-survey'
 
 const makeFakeRequest = (): HttpRequest => ({
   params: {
@@ -18,18 +19,6 @@ const makeFakeRequest = (): HttpRequest => ({
   },
   accountId: 'any_account_id'
 })
-
-const makeFakeSurvey = (): SurveyModel => {
-  return {
-    id: 'any_id',
-    question: 'any_question',
-    answers: [{
-      image: 'any_image',
-      answer: 'any_answer'
-    }],
-    date: new Date()
-  }
-}
 
 const makeFakeSurveyResult = (): SurveyResultModel => ({
   id: 'valid_id',

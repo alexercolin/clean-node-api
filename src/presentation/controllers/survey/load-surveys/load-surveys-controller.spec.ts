@@ -3,26 +3,7 @@ import { SurveyModel, LoadSurveys } from './load-surveys-protocols'
 import MockDate from 'mockdate'
 import { noContent, ok, serverError } from '../../../helpers/http/http-helper'
 import { throwError } from '@/domain/test'
-
-const makeFakeSurveys = (): SurveyModel[] => {
-  return [{
-    id: 'any_id',
-    question: 'any_question',
-    answers: [{
-      image: 'any_image',
-      answer: 'any_answer'
-    }],
-    date: new Date()
-  }, {
-    id: 'other_id',
-    question: 'other_question',
-    answers: [{
-      image: 'other_image',
-      answer: 'other_answer'
-    }],
-    date: new Date()
-  }]
-}
+import { makeFakeSurveys } from '@/domain/test/mock-survey'
 
 type SutTypes = {
   sut: LoadSurveysController
