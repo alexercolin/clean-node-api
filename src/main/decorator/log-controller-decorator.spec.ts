@@ -3,6 +3,7 @@ import { LogControllerDecorator } from './log-controller-decorator'
 import { serverError, ok } from '@/presentation/helpers/http/http-helper'
 import { LogErrorRepository } from '@/data/protocols/db/log/log-error-repository'
 import { makeFakeAccount } from '@/domain/test'
+import { makeFakeRequest } from '@/domain/test/mock-request'
 
 const makeController = (): Controller => {
   class ControllerStub implements Controller {
@@ -12,15 +13,6 @@ const makeController = (): Controller => {
   }
   return new ControllerStub()
 }
-
-const makeFakeRequest = (): HttpRequest => ({
-  body: {
-    email: 'any_mail@mail.com',
-    name: 'any_name',
-    password: 'any_password',
-    passwordConfirmation: 'any_password'
-  }
-})
 
 const makeFakeServerError = (): HttpResponse => {
   const fakeError = new Error()

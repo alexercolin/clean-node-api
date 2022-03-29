@@ -1,9 +1,9 @@
 import { SignUpController } from './signup-controller'
 import { AddAccountParams, AddAccount, AccountModel, Validation, Authentication, AuthenticationParams } from './signup-controller-protocols'
 import { MissingParamError, ServerError, EmailInUseError } from '../../errors'
-import { HttpRequest } from '../../protocols'
 import { ok, serverError, badRequest, forbidden } from '../../helpers/http/http-helper'
 import { makeFakeAccount } from '@/domain/test'
+import { makeFakeRequest } from '@/domain/test/mock-request'
 
 const makeAddAccount = (): AddAccount => {
   class AddAccountStub implements AddAccount {
@@ -31,15 +31,6 @@ const makeValidation = (): Validation => {
   }
   return new ValidationStub()
 }
-
-const makeFakeRequest = (): HttpRequest => ({
-  body: {
-    name: 'any_name',
-    email: 'any_email@mail.com',
-    password: 'any_password',
-    passwordConfirmation: 'any_password'
-  }
-})
 
 type SutTypes = {
   sut: SignUpController
@@ -74,7 +65,7 @@ describe('SignUp Controller', () => {
     await sut.handle(makeFakeRequest())
     expect(addSpy).toHaveBeenCalledWith({
       name: 'any_name',
-      email: 'any_email@mail.com',
+      email: 'any_email@email.com',
       password: 'any_password'
     })
   })
@@ -104,7 +95,7 @@ describe('SignUp Controller', () => {
     const { sut, authenticationStub } = makeSut()
     const authSpy = jest.spyOn(authenticationStub, 'auth')
     await sut.handle(makeFakeRequest())
-    expect(authSpy).toHaveBeenCalledWith({ email: 'any_email@mail.com', password: 'any_password' })
+    expect(authSpy).toHaveBeenCalledWith({ email: 'any_email@email.com', password: 'any_password' })
   })
 
   test('Should return 500 if Authentication throws', async () => {
