@@ -37,7 +37,7 @@ const makeSut = (): SutTypes => {
 const makeLoadAccountByEmailRepository = (): LoadAccountByEmailRespository => {
   class LoadAccountByEmailRespositoryStub implements LoadAccountByEmailRespository {
     async loadByEmail (email: string): Promise<AccountModel> {
-      return await new Promise(resolve => resolve(makeFakeAccount()))
+      return await Promise.resolve(makeFakeAccount())
     }
   }
   return new LoadAccountByEmailRespositoryStub()
@@ -46,7 +46,7 @@ const makeLoadAccountByEmailRepository = (): LoadAccountByEmailRespository => {
 const makeHashCompare = (): HashCompare => {
   class HashCompareStub implements HashCompare {
     async compare (value: string, hash: string): Promise<boolean> {
-      return await new Promise(resolve => resolve(true))
+      return await Promise.resolve(true)
     }
   }
   return new HashCompareStub()
@@ -55,7 +55,7 @@ const makeHashCompare = (): HashCompare => {
 const makeEncrypter = (): Encrypter => {
   class EncrypterStub implements Encrypter {
     async encrypt (id: string): Promise<string> {
-      return await new Promise(resolve => resolve('any_token'))
+      return await Promise.resolve('any_token')
     }
   }
   return new EncrypterStub()
@@ -64,7 +64,7 @@ const makeEncrypter = (): Encrypter => {
 const makeupdateAccessTokenRepository = (): UpdateAccessTokenRepository => {
   class UpdateAccessTokenRepositoryStub implements UpdateAccessTokenRepository {
     async updateAccessToken (id: string, token: string): Promise<void> {
-      return await new Promise(resolve => resolve())
+      return await Promise.resolve()
     }
   }
   return new UpdateAccessTokenRepositoryStub()
@@ -108,7 +108,7 @@ describe('DbAuthentication UseCase', () => {
 
   test('Should return null if HashCompare returns false', async () => {
     const { sut, hashCompareStub } = makeSut()
-    jest.spyOn(hashCompareStub, 'compare').mockReturnValue(new Promise(resolve => resolve(false)))
+    jest.spyOn(hashCompareStub, 'compare').mockReturnValue(Promise.resolve(false))
     const accessToken = await sut.auth(makeFakeAuthentication())
     expect(accessToken).toBeNull()
   })

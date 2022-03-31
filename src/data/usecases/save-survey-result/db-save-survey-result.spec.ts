@@ -25,7 +25,7 @@ type SutTypes = {
 const makeSaveSurveyResultRepository = (): SaveSurveyResultRepository => {
   class SaveSurveyResultRepositoryStub implements SaveSurveyResultRepository {
     async save (data: SaveSurveyResultParams): Promise<SurveyResultModel> {
-      return await new Promise(resolve => resolve(makeFakeSurveyResult()))
+      return await Promise.resolve(makeFakeSurveyResult())
     }
   }
   return new SaveSurveyResultRepositoryStub()
