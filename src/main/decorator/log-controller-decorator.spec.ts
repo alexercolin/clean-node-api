@@ -8,7 +8,7 @@ import { makeFakeRequest } from '@/domain/test/mock-request'
 const makeController = (): Controller => {
   class ControllerStub implements Controller {
     async handle (httpRequest: HttpRequest): Promise<HttpResponse> {
-      return await new Promise(resolve => resolve(ok(makeFakeAccount())))
+      return await Promise.resolve(ok(makeFakeAccount()))
     }
   }
   return new ControllerStub()
@@ -28,7 +28,7 @@ type SutTypes = {
 const makeLogErrorRepository = (): LogErrorRepository => {
   class LogErrorRepositoryStub implements LogErrorRepository {
     async logError (stack: string): Promise<void> {
-      return await new Promise(resolve => resolve())
+      return await Promise.resolve()
     }
   }
   return new LogErrorRepositoryStub()

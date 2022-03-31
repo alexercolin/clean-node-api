@@ -13,7 +13,7 @@ type SutTypes = {
 const makeLoadSurveyByIdRepository = (): LoadSurveyByIdRepository => {
   class LoadSurveyByIdRepositoryStub implements LoadSurveyByIdRepository {
     async loadById (id: string): Promise<SurveyModel> {
-      return await new Promise(resolve => resolve(makeFakeSurvey()))
+      return await Promise.resolve(makeFakeSurvey())
     }
   }
   return new LoadSurveyByIdRepositoryStub()
